@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <!--Heading documentation-->
+  <head>
+    <title>Mystery Page</title>
+    <link rel="stylesheet" href="as1.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="Smiling.jpeg" />
+  </head>
+  <body>
+    <!-- Loading animation -->
+    <div id="loading">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- Home Page Navigation Bar -->
+    <nav>
+      <ul>
+        <li><a href="as1.html" id="home">Home</a></li>
+      </ul>
+    </nav>
+    <div class="main-content">
+      <main>
+        <!-- Placeholder content-->
+        <p id="word-display"></p>
+        <button id="generate-word">Click me!</button>
+      </main>
+    </div>
+
+    <!-- Loading Animation Script -->
+    <script>
+      // List of random words
+      const words = [
+        "apple",
+        "banana",
+        "cherry",
+        "dragonfruit",
+        "elephant",
+        "flamingo",
+        "giraffe",
+        "harmony",
+        "island",
+        "jellyfish",
+        "kangaroo",
+        "lemonade",
+        "mountain",
+        "nebula",
+        "ocean",
+        "penguin",
+        "quartz",
+        "rainbow",
+        "sunflower",
+        "tornado",
+        "umbrella",
+        "volcano",
+        "whale",
+        "xylophone",
+        "yacht",
+        "zebra",
+      ];
+
+      // Reference to the word display element
+      const wordDisplay = document.getElementById("word-display");
+
+      // Reference to the button
+      const generateButton = document.getElementById("generate-word");
+
+      // Add an event listener to the button
+      generateButton.addEventListener("click", () => {
+        // Generate a random index
+        const randomIndex = Math.floor(Math.random() * words.length);
+        // Display the random word
+        wordDisplay.textContent = words[randomIndex];
+      });
+    </script>
+    <script>
+      // Get the Home link
+      const homeLink = document.getElementById("home");
+      const loading = document.getElementById("loading");
+
+      homeLink.addEventListener("click", (event) => {
+        event.preventDefault(); // Prevent immediate navigation
+        loading.classList.add("active"); // Show loading animation
+
+        setTimeout(() => {
+          loading.classList.remove("active"); // Remove loading animation
+          window.location.href = "as1.html"; // Navigate to the home page
+        }, 2000); // Adjust delay as needed
+      });
+    </script>
+  </body>
+</html>
